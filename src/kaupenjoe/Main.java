@@ -1,32 +1,53 @@
 package kaupenjoe;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        /* INPUT & OUTPUT */
+        /* INTEGERS & MATH */
 
-        /* OUTPUT */
-        // Outputting a String
-        System.out.println("Hello, I am Kaupenjoe! And this is a Java Introduction for Minecraft Modding!");
+        int a = 100;
+        int b = 200;
 
-        // You can also output variables (which will output their VALUE)
-        int life = 42;
-        System.out.println(life);
+        // ADDITION
+        int sum = a + b;
+        System.out.println("Sum: " + sum);
 
-        // You can also output Strings and variables like this
-        int grade = 80;
-        System.out.println("Your grade is " + grade);
+        // SUBTRACTION
+        int sub = a - b;
+        System.out.println("Subtraction: " + sub);
 
+        // MULTIPLICATION
+        int multi = a * b;
+        System.out.println("Multiplication: " + multi);
 
-        /* INPUT */
-        Scanner scanner = new Scanner(System.in);
-        int number = scanner.nextInt(); // HAS TO BE A NUMBER!
-        System.out.println("You just typed " + number);
+        // DIVISION
+        int division = a / b;
+        System.out.println("Division: " + division);
 
-        scanner.nextLine();
-        String input = scanner.nextLine();
-        System.out.println("You now just typed (String): " + input);
+        division = b / a;
+        System.out.println("Division: " + division);
 
+        // NO DIVISION BY 0
+        // division = b / 0;
+        // System.out.println("Division: " + division);
+
+        // REMAINDER (MODULO)
+        int remainder = 100 % 2;
+        System.out.println("Remaining from 100/2: " + remainder);
+
+        remainder = 100 % 3;
+        System.out.println("Remaining from 100/3: " + remainder);
+
+        remainder = 100 % 4;
+        System.out.println("Remaining from 100/4: " + remainder);
+
+        // SOME MATH METHODS
+        System.out.println("Absolute: " + Math.abs(-100));
+
+        System.out.println("Ceiling: " + Math.ceil(1.23));    // Rounding Up
+        System.out.println("Round: " + Math.round(1.23));     // Rounding
+        System.out.println("Floor: " + Math.floor(1.23));     // Rounding Down
+
+        System.out.println("Minimum: " + Math.min(10, 200));
+        System.out.println("Maximum: " + Math.max(37, 750));
     }
 }
