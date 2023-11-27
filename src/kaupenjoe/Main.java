@@ -1,38 +1,42 @@
 package kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* ASSIGNMENT OPERATORS */
+        /* CONTROL FLOW (IF & SWITCH) */
 
-        // Assignment =
-        int mana = 100;
-        System.out.println("Mana: " + mana);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("How much Health do you have?");
+        int health = scanner.nextInt();
+        boolean isAlive = health > 0;
 
-        // ADDITION +=
-        mana += 20; // mana = mana + 20;
-        System.out.println("Mana: " + mana);
+        if(isAlive) {
+            System.out.println("You are still alive!");
+        } else {
+            System.out.println("You have lost the game!");
+        }
 
-        mana++; // mana += 1; or mana = mana + 1;
-        System.out.println("Mana: " + mana);
+        System.out.println("How many points do you have?");
+        int points = scanner.nextInt();
 
-        // SUBTRACTION -=
-        mana -= 60;
-        System.out.println("Mana: " + mana);
+        if(points >= 100) {
+            System.out.println("You passed with HONORS!");
+        } else if(points >= 50) {
+            System.out.println("You passed");
+        } else {
+            System.out.println("You failed!");
+        }
 
-        mana--;
-        System.out.println("Mana: " + mana);
+        // SWITCH
 
-        // MULTIPLY *=
-        mana *= 2;
-        System.out.println("Mana: " + mana);
-
-        // DIVIDE /=
-        mana /= 4;
-        System.out.println("Mana: " + mana);
-
-        // MODULO (REMAINDER) %=
-        mana %= 2;
-        System.out.println("Mana: " + mana);
-
+        int level = 3;
+        switch (level) {
+            case 0: System.out.println("X is 0"); break;
+            case 1: System.out.println("X is 1"); break;
+            case 2: System.out.println("X is 2"); break;
+            case 3: System.out.println("X is 3"); break;
+            default: System.out.println("X is unknown!"); break;
+        }
     }
 }
