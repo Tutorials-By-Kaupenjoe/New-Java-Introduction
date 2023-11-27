@@ -1,53 +1,69 @@
 package kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* INTEGERS & MATH */
+        /* BOOLEANS & LOGIC */
 
-        int a = 100;
-        int b = 200;
+        // Booleans are either true (1) or false (0)
+        boolean goodVideo = true;
+        boolean subscribed = false;
+        System.out.println("This is a good video " + goodVideo);
 
-        // ADDITION
-        int sum = a + b;
-        System.out.println("Sum: " + sum);
+        boolean isCreative = false;
+        System.out.println("Player is in Creative Mode: " + isCreative);
 
-        // SUBTRACTION
-        int sub = a - b;
-        System.out.println("Subtraction: " + sub);
+        // COMPARISONS (< <= >= > == !=)
 
-        // MULTIPLICATION
-        int multi = a * b;
-        System.out.println("Multiplication: " + multi);
+        int points = 47;
+        int pointsToPass = 55;
+        boolean hasPassedTest = points >= pointsToPass; // Bigger or Equals
+        System.out.println("Has passed the Test " + hasPassedTest);
 
-        // DIVISION
-        int division = a / b;
-        System.out.println("Division: " + division);
+        int health = 0;
+        boolean isAlive = health > 0;
+        System.out.println("Is Player Kaupenjoe still alive? " + isAlive);
 
-        division = b / a;
-        System.out.println("Division: " + division);
+        boolean test = 100 == 100; // true
+        test = 100 != 100; // false
 
-        // NO DIVISION BY 0
-        // division = b / 0;
-        // System.out.println("Division: " + division);
+        // LOGIC (AND OR NOT)
 
-        // REMAINDER (MODULO)
-        int remainder = 100 % 2;
-        System.out.println("Remaining from 100/2: " + remainder);
+        // OR
+        // a | b | c
+        // 0 | 0 | 0
+        // 1 | 0 | 1
+        // 0 | 1 | 1
+        // 1 | 1 | 1
 
-        remainder = 100 % 3;
-        System.out.println("Remaining from 100/3: " + remainder);
+        // AND
+        // a | b | c
+        // 0 | 0 | 0
+        // 1 | 0 | 0
+        // 0 | 1 | 0
+        // 1 | 1 | 1
 
-        remainder = 100 % 4;
-        System.out.println("Remaining from 100/4: " + remainder);
+        // NOT
+        // a | !a
+        // 0 |  1
+        // 1 |  0
 
-        // SOME MATH METHODS
-        System.out.println("Absolute: " + Math.abs(-100));
+        boolean passedTest1 = true;
+        boolean passedTest2 = true;
+        boolean hasHonors = passedTest1 && passedTest2; // true if BOTH are true!
 
-        System.out.println("Ceiling: " + Math.ceil(1.23));    // Rounding Up
-        System.out.println("Round: " + Math.round(1.23));     // Rounding
-        System.out.println("Floor: " + Math.floor(1.23));     // Rounding Down
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What is your age?");
+        int age = scanner.nextInt();
+        System.out.println("Put in true or false, are you from Europe?");
+        boolean isEuropean = scanner.nextBoolean();
 
-        System.out.println("Minimum: " + Math.min(10, 200));
-        System.out.println("Maximum: " + Math.max(37, 750));
+        int euDrinkingAge = 18;
+        int usDrinkingAge = 21;
+
+        boolean canDrink = isEuropean && age >= euDrinkingAge || !isEuropean && age >= usDrinkingAge;
+        System.out.println("Can you drink? " + canDrink);
+
     }
 }
