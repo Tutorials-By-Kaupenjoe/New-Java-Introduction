@@ -1,64 +1,55 @@
 package kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* LOOPS (FOR & WHILE) */
+        /* EXERCISE 1: Easy Calculator
+         *
+         * Create a Calculator that runs multiple times until you manually break out of it.
+         * You should read the operation first, then read the first and second number.
+         *
+         * Depending on the operation chosen, you then have to return a different result.
+         * You can do this with if statements or a switch statement.
+         *
+         * Please note that when reading in a String, you want to use scanner.next()
+         * And when comparing strings you wanna use:
+         * String s = "something";
+         * s.equals("something");
+         * and not ==
+         *
+         * After the result has been output, ask the user if they want to continue, if not end the program!
+         * Estimated Time: 30-45 minutes
+         *
+         */
 
-        // Outputting all numbers from 0 to 99...
-        System.out.println(0);
-        System.out.println(2);
-        System.out.println(4);
-        System.out.println(6);
-        System.out.println(8);
-        System.out.println(10);
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.println("Type in the operation (plus or +, minus or -, multiply or *, divide or /)");
+            String operation = scanner.next();
 
-        // Now output years between 1000 and 2000, but only leap years!
-        System.out.println(1000);
-        System.out.println(1004);
-        System.out.println(1008);
-        //... this is gonna take forever!
+            System.out.println("Type in your first number!");
+            int number1 = scanner.nextInt();
 
-        System.out.println("-------");
+            System.out.println("Type in your second number!");
+            int number2 = scanner.nextInt();
 
-        // FOR
+            int result = 0;
 
-        for(int i = 0; i < 100; i++) {
-            System.out.println(i);
-        }
-
-        System.out.println("-------");
-
-        for(int i = 0; i < 100; i++) {
-            if(i % 2 != 0) {
-                System.out.println(i);
-            }
-        }
-
-        for(int i = 1000; i <= 2000; i++) {
-            if(i % 4 == 0 && (i % 100 != 0 || i % 400 == 0)) {
-                // System.out.println(i);
-            }
-        }
-
-        int health = 10;
-        while (health > 0) {
-            System.out.println("Player still alive with " + health + " HP");
-            health--;
-        }
-
-        health = 10;
-        while (health > 0) {
-            health--;
-            if(health == 6) {
-                continue;
+            switch (operation) {
+                case "plus", "+": result = number1 + number2; break;
+                case "minus", "-": result = number1 - number2; break;
+                case "multiply", "*": result = number1 * number2; break;
+                case "divide", "/": result = number1 / number2; break;
+                default: result = 0; break;
             }
 
-            if(health == 2) {
+            System.out.println("Your result it " + number1 + " " + operation + " " + number2 + " = " + result);
+
+            System.out.println("\nDo you wish to calculate something else? y/n");
+            if(!scanner.next().equals("y")) {
                 break;
             }
-            System.out.println("Player still alive with " + health + " HP");
         }
-
-
     }
 }
