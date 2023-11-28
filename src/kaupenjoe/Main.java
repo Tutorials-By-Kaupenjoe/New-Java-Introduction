@@ -1,27 +1,42 @@
 package kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* CASTING */
+        /* STRING & STRING METHODS */
 
-        // Turning one Data Type into another
-        int health = 10;
-        float damage = 1.5f;
+        String name = "Kaupenjoe";
+        String occupation = "YouTube";
 
-        // int result = health - damage;
-        float resultFloat = health - damage; // Implicit!
-        System.out.println("Result: " + resultFloat); // 8.5
+        occupation = occupation + "r";
 
-        int resultInteger = health - (int)damage; // explicitly casting damage from float to int
-        System.out.println("Result: " + resultInteger); // 9
+        System.out.println("My name is " + name + " and I am a " + occupation);
 
-        resultInteger = (int)((float)health - damage); // 8.5 to int --> 8
-        System.out.println("Result: " + resultInteger); // 8
 
-        String point = "100";
-        System.out.println("Result: " + point + 5);
+        String sentence = "Hello, how are you doing?";
+        System.out.println(sentence);
 
-        int result = Integer.parseInt(point) + 5;
-        System.out.println("Result: " + result);
+        // Upper Case or Lower Case
+        System.out.println("Lower Case: " + sentence.toLowerCase());
+        System.out.println("Upper Case: " + sentence.toUpperCase());
+
+        // Contain
+        System.out.println("Does it contain \"Howdy\": " + sentence.contains("Howdy"));
+
+        // Replacing
+        System.out.println(sentence.replace("Hello", "Howdy"));
+
+        // charAt
+        System.out.println(sentence.charAt(7));
+
+        // Original String is not modified
+        System.out.println(sentence);
+
+        Scanner scanner = new Scanner(System.in);
+        String test = scanner.next();
+
+        System.out.println(test.equals("Hello"));
+
     }
 }
