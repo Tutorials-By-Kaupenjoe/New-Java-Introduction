@@ -2,21 +2,26 @@ package kaupenjoe;
 
 public class Main {
     public static void main(String[] args) {
-        /* TERNARY OPERATOR */
+        /* CASTING */
 
-        int health = 3;
-        String status = "";
-        System.out.println("What is your Status? " + status);
+        // Turning one Data Type into another
+        int health = 10;
+        float damage = 1.5f;
 
-        if(health > 0) {
-            status = "Alive";
-        } else {
-            status = "Non-Alive";
-        }
-        System.out.println("What is your Status? " + status);
-        status = "";
+        // int result = health - damage;
+        float resultFloat = health - damage; // Implicit!
+        System.out.println("Result: " + resultFloat); // 8.5
 
-        status = health > 0 ? "Alive" : "Non-Alive";
-        System.out.println("What is your Status? " + status);
+        int resultInteger = health - (int)damage; // explicitly casting damage from float to int
+        System.out.println("Result: " + resultInteger); // 9
+
+        resultInteger = (int)((float)health - damage); // 8.5 to int --> 8
+        System.out.println("Result: " + resultInteger); // 8
+
+        String point = "100";
+        System.out.println("Result: " + point + 5);
+
+        int result = Integer.parseInt(point) + 5;
+        System.out.println("Result: " + result);
     }
 }
