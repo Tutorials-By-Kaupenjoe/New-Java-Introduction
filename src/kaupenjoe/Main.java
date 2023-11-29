@@ -1,42 +1,47 @@
 package kaupenjoe;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        /* STRING & STRING METHODS */
+        /* ARRAYS */
 
-        String name = "Kaupenjoe";
-        String occupation = "YouTube";
+        String question1 = "What does WWW stand for?";
+        String question2 = "What is the World's largest Ocean?";
+        String question3 = "Which Year did East and West Germany Unify?";
+        String question4 = "What is the capital of France?";
 
-        occupation = occupation + "r";
+        String answer1 = "World Wide Web";
+        String answer2 = "Pacific Ocean";
+        String answer3 = "1990";
+        String answer4 = "Paris";
 
-        System.out.println("My name is " + name + " and I am a " + occupation);
+        // Now add 15 more...
+        // Let's loop through them
 
+        for(int i = 0; i < 4; i++) {
+            // System.out.println(questioni); DOES NOT WORK!
+        }
 
-        String sentence = "Hello, how are you doing?";
-        System.out.println(sentence);
+        // Array - Think of this as a list
+        String[] questions = new String[4];
+        questions[0] = "What does WWW stand for?";
+        questions[1] = "What is the World's largest Ocean?";
+        questions[2] = "Which Year did East and West Germany Unify?";
+        questions[3] = "What is the capital of France?";
 
-        // Upper Case or Lower Case
-        System.out.println("Lower Case: " + sentence.toLowerCase());
-        System.out.println("Upper Case: " + sentence.toUpperCase());
+        String[] answers = new String[4];
+        answers[0] = "World Wide Web";
+        answers[1] = "Pacific Ocean";
+        answers[2] = "1990";
+        answers[3] = "Paris";
 
-        // Contain
-        System.out.println("Does it contain \"Howdy\": " + sentence.contains("Howdy"));
+        System.out.println("Q: " + questions[0] + " | A: " + answers[0]);
 
-        // Replacing
-        System.out.println(sentence.replace("Hello", "Howdy"));
+        for(int i = 0; i < questions.length; i++) {
+            System.out.println("Q: " + questions[i] + " | A: " + answers[i]);
+        }
 
-        // charAt
-        System.out.println(sentence.charAt(7));
-
-        // Original String is not modified
-        System.out.println(sentence);
-
-        Scanner scanner = new Scanner(System.in);
-        String test = scanner.next();
-
-        System.out.println(test.equals("Hello"));
-
+        for(String question : questions) {
+            System.out.println(question);
+        }
     }
 }
