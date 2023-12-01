@@ -1,61 +1,72 @@
 package kaupenjoe;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* COLLECTIONS */
+        /* CALCULATOR | Exercise 2
+        *
+        * Create a Calculator similar to the first exercise!
+        * However, this time use at least two custom methods (one for evaluating the operation and one for continuing)!
+        *
+        * Additionally, make sure if a Dividing by 0 would happen, you catch that and just return a 0 instead!
+        *
+        */
 
-        String[] questions = new String[4];
-        questions[0] = "What does WWW stand for?";
-        questions[1] = "What is the World's largest Ocean?";
-        questions[2] = "Which Year did East and West Germany Unify?";
-        questions[3] = "What is the capital of France?";
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("What is the operation? (+, plus | -, minus | *, multiply, | /, divide)");
+            String operation = scanner.next();
 
-        String[] answers = new String[4];
-        answers[0] = "World Wide Web";
-        answers[1] = "Pacific Ocean";
-        answers[2] = "1990";
-        answers[3] = "Paris";
+            System.out.println("What is the first number?");
+            int firstNumber = scanner.nextInt();
+            System.out.println("What is the second number?");
+            int secondNumber = scanner.nextInt();
 
-        List<String> moreQuestions = new ArrayList<>();
-        moreQuestions.add("What website hosts most videos in the world?");
-        moreQuestions.clear();
+            evaluateOperation(operation, firstNumber, secondNumber);
 
-        List<Integer> pointsOnTest = new ArrayList<>();
-        pointsOnTest.add(19);
-        pointsOnTest.add(55);
-        pointsOnTest.add(78);
+            if (wannaStop(scanner)) break;
+        }
+    }
 
+    private static boolean wannaStop(Scanner scanner) {
+        System.out.println("\nDo you want to calculate something else? y/n");
+        if(!scanner.next().equals("y")) {
+            return true;
+        }
+        return false;
+    }
 
-        Set<String> countriesToVisit = new HashSet<>();
-        countriesToVisit.add("France");
-        countriesToVisit.add("Germany");
-        countriesToVisit.add("Spain");
-        countriesToVisit.add("France");
+    public static int sum(int a, int b) {
+        return a + b;
+    }
 
-        System.out.println(countriesToVisit);
+    public static int subtract(int a, int b) {
+        return a - b;
+    }
 
-        Map<String, Integer> countryToPopulationMap = new HashMap<>();
-        countryToPopulationMap.put("USA", 331000000);
-        countryToPopulationMap.put("United Kingdom", 67330000);
-        countryToPopulationMap.put("Austria", 8950000);
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
 
-        System.out.println(countryToPopulationMap.get("USA"));
-        System.out.println(countryToPopulationMap.get("Germany"));
-
-        System.out.println(countryToPopulationMap);
-
-
-        moreQuestions.add("What website hosts most videos in the world?");
-        moreQuestions.add("What is the capital of Germany?");
-        for(int i = 0; i < moreQuestions.size(); i++) {
-            System.out.println(moreQuestions.get(i));
+    public static int divide(int a, int b) {
+        if(b == 0) {
+            System.out.println("Dividing by 0 does not work!");
+            return 0;
         }
 
-        for(Map.Entry<String, Integer> entry : countryToPopulationMap.entrySet()) {
-            System.out.println("Key = " + entry.getKey() + " | Value = " + entry.getValue());
-        }
+        return a / b;
+    }
 
+    public static void evaluateOperation(String operation, int a, int b) {
+        int result;
+        switch (operation) {
+            case "+", "plus": result = sum(a, b); break;
+            case "-", "minus": result = subtract(a, b); break;
+            case "*", "multiply": result = multiply(a, b); break;
+            case "/", "divide": result = divide(a, b); break;
+            default: System.out.println("Not a valid operation"); result = 0;
+        };
+        System.out.println("Result is " + a + " " + operation + " " + b + " = " + result);
     }
 }
