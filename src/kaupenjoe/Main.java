@@ -1,10 +1,10 @@
 package kaupenjoe;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        /* METHODS */
-
-        // Going Beyond the main method!
+        /* COLLECTIONS */
 
         String[] questions = new String[4];
         questions[0] = "What does WWW stand for?";
@@ -18,30 +18,44 @@ public class Main {
         answers[2] = "1990";
         answers[3] = "Paris";
 
-        outputQuestionsAndAnswersXTimes(5, questions, answers);
-        System.out.println("----");
-        outputQuestionsAndAnswersXTimes(2, questions, answers);
-        System.out.println("----");
-        outputQuestionsAndAnswersXTimes(3, questions, answers);
-        System.out.println("----");
-        outputQuestionsAndAnswersXTimes(8, questions, answers);
+        List<String> moreQuestions = new ArrayList<>();
+        moreQuestions.add("What website hosts most videos in the world?");
+        moreQuestions.clear();
+
+        List<Integer> pointsOnTest = new ArrayList<>();
+        pointsOnTest.add(19);
+        pointsOnTest.add(55);
+        pointsOnTest.add(78);
 
 
-    }
+        Set<String> countriesToVisit = new HashSet<>();
+        countriesToVisit.add("France");
+        countriesToVisit.add("Germany");
+        countriesToVisit.add("Spain");
+        countriesToVisit.add("France");
 
-    private static void outputQuestionsAndAnswersXTimes(int x, String[] questions, String[] answers) {
-        for (int c = 0; c < x; c++) {
-            outputQuestionsAndAnswers(questions, answers);
+        System.out.println(countriesToVisit);
+
+        Map<String, Integer> countryToPopulationMap = new HashMap<>();
+        countryToPopulationMap.put("USA", 331000000);
+        countryToPopulationMap.put("United Kingdom", 67330000);
+        countryToPopulationMap.put("Austria", 8950000);
+
+        System.out.println(countryToPopulationMap.get("USA"));
+        System.out.println(countryToPopulationMap.get("Germany"));
+
+        System.out.println(countryToPopulationMap);
+
+
+        moreQuestions.add("What website hosts most videos in the world?");
+        moreQuestions.add("What is the capital of Germany?");
+        for(int i = 0; i < moreQuestions.size(); i++) {
+            System.out.println(moreQuestions.get(i));
         }
-    }
 
-    public static void outputQuestionsAndAnswers(String[] questions, String[] answers) {
-        for(int i = 0; i < questions.length; i++) {
-            System.out.println("Q: " + questions[i] + " | A: " + answers[i]);
+        for(Map.Entry<String, Integer> entry : countryToPopulationMap.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + " | Value = " + entry.getValue());
         }
-    }
 
-    public static int sum(int x, int y) {
-        return x + y;
     }
 }
