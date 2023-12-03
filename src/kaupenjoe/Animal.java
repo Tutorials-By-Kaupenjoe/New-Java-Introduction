@@ -1,6 +1,6 @@
 package kaupenjoe;
 
-public class Animal {
+public abstract class Animal {
     public String picture;  // accessible from anywhere and changeable
     protected String name;  // accessible in sub-classes and same package!
     private int age;        // accessible ONLY within the class itself
@@ -10,6 +10,8 @@ public class Animal {
         this.name = name;
         this.age = age;
     }
+
+    public abstract void move();
 
     public void makeSound() {
         System.out.println("Whatever Animal Sound");
