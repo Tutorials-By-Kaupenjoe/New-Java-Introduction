@@ -1,19 +1,21 @@
 package kaupenjoe;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        /* Exceptions & Try and Catch */
-        int x = 10;
-        try {
-            x = 100 / 0;
-        } catch(Exception e) {
-            System.out.println("Caught Exception " + e.getMessage());
-        }
+    public static void main(String[] args) {
+        /* Generics */
 
-        System.out.println("I am happy!");
+        BlockStorage<Block> blockStorage = new BlockStorage<>();
+        blockStorage.addBlock(new StoneBlock());
+        blockStorage.addBlock(new StoneBlock());
+        blockStorage.addBlock(new WoodBlock());
+        blockStorage.addBlock(new StoneBlock());
+        blockStorage.displayBlocks();
 
-        if(x < 100) {
-            throw new Exception("Just throwing for fun!");
-        }
+        BlockStorage<WoodBlock> woodenBlockStorage = new BlockStorage<>();
+        woodenBlockStorage.addBlock(new WoodBlock());
+        woodenBlockStorage.addBlock(new WoodBlock());
+        woodenBlockStorage.addBlock(new WoodLogBlock());
+
+
     }
 }
