@@ -1,57 +1,59 @@
 package kaupenjoe;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /* ANONYMOUS CLASSES */
+        /* EXERCISE 3 - Calculator with Classes
+         *
+         * Create the same Calculator application that we had before!
+         *
+         * This time however, make classes for each operation. Make a custom Interface that all of them implement!
+         * Also make a Calculator class which deals with the calculation itself.
+         *
+         *
+         */
 
-        Animal bengie = new Dog("bengie.png", "Bengie", 9);
-        Animal jeremy = new Dog("jeremy.png", "Jeremy", 7);
+        Scanner scanner = new Scanner(System.in);
 
-        Animal whiskers = new Cat("whiskers.jpg", "Whiskers", 5);
+        System.out.println("Choose operation:");
+        System.out.println("plus or + for Addition");
+        System.out.println("minus or - for Subtraction");
+        System.out.println("multiply or * for Multiplication");
+        System.out.println("divide or / for Division");
 
-        Animal george = new Cat("george.jpg", "George", 3);
+        System.out.print("Enter the operation: ");
+        String choice = scanner.nextLine();
 
-        Bird jules = new Bird("jules.png", "Jules", 1) {
-            @Override
-            public void move() {
-                super.move();
-            }
-        };
-        jules.move();
-        jules.fly();
-
-        Animal joel = new Animal("joel.jpg", "Joel", 2) {
-            @Override
-            public void move() {
-                System.out.println("Hamster is running in his wheel!");
-            }
-
-            @Override
-            public void makeSound() {
-                System.out.println("Very tiny hamster noises");
-            }
-        };
-
-        List<Animal> animals = new ArrayList<>();
-        animals.add(bengie);
-        animals.add(whiskers);
-        animals.add(jules);
-        animals.add(joel);
-
-        List<IFlyable> flyables = new ArrayList<>();
-        flyables.add(jules);
-        flyables.add(new Aeroplane());
-
-        for(Animal animal : animals) {
-            animal.move();
-            animal.makeSound();
+        Operation selectedOperation;
+        switch (choice.toLowerCase()) {
+            case "plus", "+":
+                selectedOperation = new Addition();
+                break;
+            case "minus", "-":
+                selectedOperation = new Subtraction();
+                break;
+            case "multiply", "*":
+                selectedOperation = new Multiplication();
+                break;
+            case "divide", "/":
+                selectedOperation = new Division();
+                break;
+            default:
+                System.out.println("Invalid choice");
+                return;
         }
 
-        for(IFlyable flyable : flyables) {
-            flyable.fly();
-        }
+        Calculator calculator = new Calculator(selectedOperation);
+
+        System.out.print("Enter First Number: ");
+        int firstNumber = scanner.nextInt();
+
+        System.out.print("Enter Second Number: ");
+        int secondNumber = scanner.nextInt();
+
+        int result = calculator.calculate(firstNumber, secondNumber);
+        System.out.println(calculator.getOperationString() + " = " + result);
+
     }
 }
