@@ -1,16 +1,19 @@
 package kaupenjoe;
 
 public class Main {
-    public static void main(String[] args) {
-        /* Enums & Advanced Enums */
+    public static void main(String[] args) throws Exception {
+        /* Exceptions & Try and Catch */
+        int x = 10;
+        try {
+            x = 100 / 0;
+        } catch(Exception e) {
+            System.out.println("Caught Exception " + e.getMessage());
+        }
 
-        Difficulty gameDifficulty = Difficulty.MEDIUM;
-        System.out.println("Difficulty is " + gameDifficulty);
+        System.out.println("I am happy!");
 
-        ToolMaterial myAxeMaterial = ToolMaterial.STONE;
-        ToolMaterial myShovelMaterial = ToolMaterial.IRON;
-
-        System.out.println("My axe has " + myAxeMaterial.getDurability() + " durability");
-        System.out.println("My shovel has " + myShovelMaterial.getMiningSpeed() + " mining speed");
+        if(x < 100) {
+            throw new Exception("Just throwing for fun!");
+        }
     }
 }
