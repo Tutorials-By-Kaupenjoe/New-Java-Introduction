@@ -1,36 +1,12 @@
 package kaupenjoe;
 
-public class Dog {
-    public String picture;  // accessible from anywhere and changeable
-    protected String name;  // accessible in sub-classes and same package!
-    private int age;        // accessible ONLY within the class itself
-
-    public static int numberOfDogs = 0;
-
-    // Default Constructor
-    // public Dog() {
-    //
-    // }
-
+public class Dog extends Animal {
     public Dog(String picture, String name, int age) {
-        this.picture = picture;
-        this.name = name;
-        this.age = age;
-
-        numberOfDogs++;
+        super(picture, name, age);
     }
 
-    public void birthday() {
-        age++;
-    }
-
-    // Getter
-    public int getAge() {
-        return age;
-    }
-
-    // Setter
-    public void setAge(int age) {
-        this.age = age;
+    @Override
+    public void makeSound() {
+        System.out.println("Woof");
     }
 }
